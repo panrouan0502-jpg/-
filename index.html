@@ -1,24 +1,25 @@
+HTML
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>血壓守護者：健康大冒險</title>
+    <title>小兔奇奇的大冒險</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        :root { --p: #e63946; --bg: #f8f9fa; --txt: #2b2d42; --accent: #457b9d; }
-        body { font-family: "Microsoft JhengHei", sans-serif; margin: 0; background: var(--bg); color: var(--txt); }
+        :root { --p: #ff8fa3; --bg: #fff5f7; --txt: #5d4037; --accent: #ffb3c1; }
+        body { font-family: "Microsoft JhengHei", "BiauKai", sans-serif; margin: 0; background: var(--bg); color: var(--txt); }
         .lang-bar { position: sticky; top: 0; background: white; padding: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100; }
-        .btn { border: 2px solid var(--accent); background: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; margin: 0 5px; font-weight: bold; }
+        .btn { border: 2px solid var(--accent); background: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; margin: 0 5px; font-weight: bold; font-size: 1.1rem; }
         .btn.active { background: var(--accent); color: white; }
-        .section { min-height: 80vh; padding: 60px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-bottom: 1px solid #ddd; }
-        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 700px; width: 100%; }
-        h1 { color: var(--p); font-size: 2.5rem; text-align: center; }
-        h2 { color: var(--accent); border-left: 5px solid var(--p); padding-left: 15px; }
-        p, li { font-size: 1.4rem; line-height: 1.8; }
-        .tip { background: #fff3f3; padding: 15px; border-radius: 15px; border-left: 5px solid var(--p); cursor: pointer; margin-top: 10px; }
-        .footer { text-align: center; padding: 50px; background: var(--accent); color: white; }
-        .next-btn { background: var(--p); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 50px; cursor: pointer; margin-top: 20px; }
+        .section { min-height: 90vh; padding: 40px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .card { background: white; padding: 40px; border-radius: 40px; box-shadow: 0 15px 35px rgba(255, 143, 163, 0.15); max-width: 600px; width: 100%; text-align: center; border: 4px solid #ffe5ec; }
+        h1 { color: #ff4d6d; font-size: 2.8rem; margin-bottom: 20px; }
+        h2 { color: #ff758f; font-size: 2rem; margin-top: 0; }
+        p { font-size: 1.5rem; line-height: 1.8; margin: 20px 0; }
+        .tip { background: #fff0f3; padding: 15px; border-radius: 20px; border: 2px dashed #ff8fa3; cursor: pointer; color: #c9184a; font-weight: bold; }
+        .next-btn { background: #ff4d6d; color: white; border: none; padding: 15px 40px; font-size: 1.3rem; border-radius: 50px; cursor: pointer; margin-top: 20px; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3); }
     </style>
 </head>
 <body>
@@ -32,80 +33,73 @@
 
 <div class="section animate__animated animate__fadeIn">
     <div class="card">
-        <h1 id="t1">血壓的小怪獸</h1>
-        <p id="p1">你知道嗎？血壓就像屋子裡的水龍頭，壓力太高，水管就會受傷。讓我們一起學會如何馴服這個小怪獸！</p>
-        <button class="next-btn" onclick="window.scrollTo(0, 1000)">往下看第一章</button>
+        <h1 id="t1">🐰 小兔奇奇的大冒險</h1>
+        <p id="p1">奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。今天，奇奇要出發去一個神奇的地方，把怪獸趕走喔！</p>
+        <button class="next-btn" onclick="window.scrollBy(0, window.innerHeight)">出發冒險囉！</button>
     </div>
 </div>
 
-<div class="section card-scroll">
-    <div class="card">
-        <h2 id="t2">第一章：準時服藥的魔法</h2>
-        <ul id="l2">
-            <li>固定時間：每天同一個時間吃，效果最穩定。</li>
-            <li>不要補吃：如果發現時已快到下次吃藥時間，吃一顆就好。</li>
-        </ul>
-        <div class="tip" onclick="alert('千萬別一次吃兩顆，會太低血壓喔！')">💡 護理師小提醒 (點我看秘密)</div>
+<div class="section">
+    <div class="card card-scroll">
+        <h2 id="t2">第一站：勇敢邀請函</h2>
+        <p id="p2">長頸鹿醫生送給奇奇一張閃亮亮的邀請函，請他去醫院住幾天。這是一場找出健康寶藏的探險喔！</p>
+        <div class="tip" onclick="alert('跟小朋友說：這不是去打針，是去探險之旅！')">⭐ 護理師真心話</div>
     </div>
 </div>
 
-<div class="section card-scroll">
-    <div class="card">
-        <h2 id="t3">第二章：嘴饞時要注意</h2>
-        <p id="p3">吃太鹹（鈉含量高）會讓血壓升高！加工食品、罐頭、醃漬物要少吃。</p>
-        <div class="tip" onclick="alert('可以用蔥、薑、蒜來調味代替鹽巴喔！')">💡 護理師小提醒 (點我看秘密)</div>
+<div class="section">
+    <div class="card card-scroll">
+        <h2 id="t3">第二站：超人換裝秀</h2>
+        <p id="p3">到了醫院，我們要換上「超人飛行衣」。這件衣服背後有開口，是為了讓超人飛得更輕快喔！</p>
+        <div class="tip" onclick="alert('手術衣的開口設計是為了方便檢查，用超人比喻最可愛！')">⭐ 護理師真心話</div>
     </div>
 </div>
 
-<div class="section card-scroll">
-    <div class="card">
-        <h2 id="t4">第三章：每天記錄好寶寶</h2>
-        <p id="p4">落實「722原則」：連續7天量測、早晚各2次、每次量2遍取平均。</p>
-        <div class="tip" onclick="alert('量血壓前要安靜坐著休息5分鐘喔！')">💡 護理師小提醒 (點我看秘密)</div>
+<div class="section">
+    <div class="card card-scroll">
+        <h2 id="t4">第三站：魔法泡泡噴霧</h2>
+        <p id="p4">護理師姐姐拿出氧氣面罩：「我們來吹泡泡，聞聞看是草莓味嗎？」深吸三口氣，奇奇就進入甜甜夢鄉了。</p>
+        <div class="tip" onclick="alert('將麻醉解釋為『舒服的深層睡眠』，能降低恐懼感。')">⭐ 護理師真心話</div>
     </div>
 </div>
 
-<div class="section card-scroll">
-    <div class="card" style="text-align: center;">
-        <h2 id="t5">大功告成！</h2>
-        <p id="p5">只要堅持這三章的任務，您就是最勇敢、最健康的健康守護者！</p>
-        <button class="next-btn" onclick="alert('健康長壽呷百二！恭喜完成學習！')">點我領取榮譽勳章</button>
+<div class="section">
+    <div class="card card-scroll">
+        <h2 id="t5">勇者歸來！</h2>
+        <p id="p5">當奇奇醒來，調皮怪獸不見了！他拿到了一枚勇氣勳章，還可以回家吃最愛的布丁喔！</p>
+        <button class="next-btn" onclick="alert('恭喜你，成為最勇敢的小超人！')">領取榮譽勳章</button>
     </div>
-</div>
-
-<div class="footer">
-    <p>© 2025 專業護理師衛教團隊 關心您</p>
 </div>
 
 <script>
     const data = {
         zh: {
-            t1: "血壓的小怪獸", p1: "你知道嗎？血壓就像水管，壓力太高水管會受傷。讓我們一起馴服它！",
-            t2: "第一章：準時服藥", l2: "<li>固定時間吃藥。</li><li>忘記時不要補吃兩顆。</li>",
-            t3: "第二章：少鹽多健康", p3: "罐頭、醃漬物要少吃，避免血壓飆高。",
-            t4: "第三章：血壓天天量", p4: "早晚都要量，記錄下來給醫生看最放心。",
-            t5: "大功告成！", p5: "您已經掌握了守護健康的秘訣！"
+            t1: "🐰 小兔奇奇的大冒險", p1: "奇奇的肚子裡有個調皮小怪獸，讓我們一起去探險趕走它！",
+            t2: "第一站：勇敢邀請函", p2: "長頸鹿醫生給了奇奇一張卡片，請他去醫院住幾天探險。",
+            t3: "第二站：超人換裝秀", p3: "換上特製的『超人飛行衣』，這是專屬小英雄的服裝喔！",
+            t4: "第三站：魔法泡泡噴霧", p4: "聞一聞神奇的泡泡味，睡一個好覺，怪獸就消失了。",
+            t5: "勇者歸來！", p5: "奇奇醒來就康復了，你是最棒的勇敢小戰士！"
         },
         tw: {
-            t1: "血壓的小怪獸", p1: "血壓若太高，血管會受傷。咱做伙來學習按怎照顧身體！",
-            t2: "第一章：吃藥愛準時", l2: "<li>定時吃藥仔。</li><li>袂記吃毋通吃兩份。</li>",
-            t3: "第二章：鹽巴少吃一點", p3: "醃漬物、鹹的東西少吃，血壓才會乖。",
-            t4: "第三章：逐天量血壓", p4: "早起暗時攏愛量，記落來予醫生看。",
-            t5: "大功告成！", p5: "祝你身體勇健，快樂呷百二！"
+            t1: "🐰 兔仔奇奇大冒險", p1: "奇奇肚子內有調皮怪獸，咱做伙去醫院將伊趕走！",
+            t2: "第一站：勇敢邀請卡", p2: "長頸鹿醫生送奇奇一張卡片，請伊去醫院散步探險。",
+            t3: "第二站：超人換衫秀", p3: "換上『超人飛行衫』，你是尚勇敢的小英雄！",
+            t4: "第三站：魔法芳芳泡泡", p4: "聞一下甜甜的味道，睏一覺起來，身體就輕鬆啊。",
+            t5: "勇者轉來啊！", p5: "奇奇醒來病就快好啊，你是尚讚的勇敢戰士！"
         },
         hak: {
-            t1: "血壓个小怪獸", p1: "血壓太高血管會壞。大家共下學習按般照顧身體！",
-            t2: "第一章：藥仔愛準時", l2: "<li>定時食藥仔。</li><li>毋記得毋好食兩份。</li>",
-            t3: "第二章：鹽巴少食一兜", p3: "鹹个東西少食，血壓才會穩定。",
-            t4: "第三章：逐日量血壓", p4: "朝晨暗晡都要量，記下來分醫生看。",
-            t5: "大功告成！", p5: "祝你身體健康，平安快樂！"
+            t1: "🐰 兔仔奇奇大冒險", p1: "奇奇腹肚裡有調皮怪獸，共下想辦法趕走佢！",
+            t2: "第一站：勇敢邀請函", p2: "長頸鹿醫生分奇奇一張卡片，請佢去醫院住幾日探險。",
+            t3: "第二站：超人換衫秀", p3: "換上『超人飛行衫』，你就係最勇敢个小英雄！",
+            t4: "第三站：魔法泡泡噴霧", p4: "聞一下甜甜个味道，睡一覺起來，怪獸就走撇了。",
+            t5: "勇者轉來了！", p5: "奇奇醒來就健康了，你係最慶个勇敢小戰士！"
         },
         en: {
-            t1: "The BP Monster", p1: "High blood pressure can damage your veins. Let's learn how to control it!",
-            t2: "CH1: Take Meds on Time", l2: "<li>Consistency is key.</li><li>Never double your dose.</li>",
-            t3: "CH2: Less Salt, More Life", p3: "Avoid processed foods to keep your BP stable.",
-            t4: "CH3: Track Your Daily BP", p4: "Measure morning and night. Share logs with your doctor.",
-            t5: "Well Done!", p5: "You are now a certified Health Guardian!"
+            t1: "🐰 Kiki's Big Adventure", p1: "Kiki has a little monster in his tummy. Let's go on a mission to kick it out!",
+            t2: "Step 1: The Magic Invitation", p2: "Dr. Giraffe gave Kiki a sparkling card for a special hospital trip.",
+            t3: "Step 2: Superhero Dress-up", p3: "Put on your 'Superhero Flight Suit'. You're ready to fly!",
+            t4: "Step 3: Magic Bubble Mist", p4: "Breathe in the sweet bubbles, take a nap, and the monster will go away.",
+            t5: "Hero Returns!", p5: "Kiki woke up healthy! You are the bravest little warrior!"
         }
     };
 
@@ -115,7 +109,7 @@
         document.getElementById('t1').innerText = data[l].t1;
         document.getElementById('p1').innerText = data[l].p1;
         document.getElementById('t2').innerText = data[l].t2;
-        document.getElementById('l2').innerHTML = data[l].l2;
+        document.getElementById('p2').innerText = data[l].p2;
         document.getElementById('t3').innerText = data[l].t3;
         document.getElementById('p3').innerText = data[l].p3;
         document.getElementById('t4').innerText = data[l].t4;
@@ -124,7 +118,6 @@
         document.getElementById('p5').innerText = data[l].p5;
     }
 
-    // 滾動顯示動畫
     window.addEventListener('scroll', () => {
         document.querySelectorAll('.card-scroll').forEach(s => {
             const r = s.getBoundingClientRect();
