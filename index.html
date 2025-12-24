@@ -3,117 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>兒童手術大冒險｜專科護理師專業衛教</title>
+    <title>1134047 潘柔安｜兒童手術衛教網頁</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root { --p: #6c5ce7; --s: #ff7675; --bg: #fdfcfb; --txt: #2d3436; }
         body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; background: var(--bg); color: var(--txt); }
         .header { position: sticky; top: 0; background: white; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100; }
-        .btn { border: 2px solid var(--p); background: none; padding: 10px 25px; border-radius: 25px; cursor: pointer; margin: 0 8px; font-weight: bold; font-size: 1rem; transition: 0.3s; }
+        .btn { border: 2px solid var(--p); background: none; padding: 10px 25px; border-radius: 25px; cursor: pointer; margin: 0 8px; font-weight: bold; transition: 0.3s; }
         .btn.active { background: var(--p); color: white; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
+        
+        /* 專業前言樣式 */
+        .preface { background: #fff; padding: 40px; border-radius: 30px; border: 2px solid var(--p); margin-bottom: 60px; line-height: 1.8; box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1); }
+        .preface h2 { color: var(--p); margin-top: 0; text-align: center; font-size: 1.5rem; }
+        .preface p { font-size: 1.15rem; color: #444; text-align: justify; }
+        .np-sign-top { text-align: right; margin-top: 20px; font-weight: bold; color: var(--p); }
+
         .section { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 80px; }
         .story-card { background: white; padding: 45px; border-radius: 35px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); border-top: 8px solid var(--p); position: relative; }
         .badge { background: #6c5ce71a; color: var(--p); padding: 5px 15px; border-radius: 12px; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: inline-block; }
-        h2 { color: var(--p); font-size: 2.2rem; margin-top: 10px; }
+        h2.story-title { color: var(--p); font-size: 2.2rem; margin-top: 10px; }
         .story-text { font-size: 1.5rem; line-height: 1.8; color: #444; margin: 25px 0; border-bottom: 1px dashed #ddd; padding-bottom: 25px; }
+        
         .parent-guide { background: #fffcf0; padding: 25px; border-radius: 20px; border-left: 6px solid #feca57; }
-        .parent-guide h3 { margin: 0 0 15px 0; color: #b88e2f; font-size: 1.2rem; display: flex; align-items: center; }
-        .parent-guide h3::before { content: "📋 Clinical Tips for Parents / 護理師建議："; }
+        .parent-guide h3 { margin: 0 0 15px 0; color: #b88e2f; font-size: 1.2rem; }
         .parent-guide ul { font-size: 1.1rem; padding-left: 20px; color: #555; margin: 0; }
         .parent-guide li { margin-bottom: 8px; }
-        .footer { text-align: center; padding: 60px 20px; color: #636e72; line-height: 1.8; background: #f1f2f6; border-top: 1px solid #dfe4ea; }
-        .emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; }
+        
+        /* 頁尾屬名樣式 */
+        .footer { text-align: center; padding: 60px 20px; color: #636e72; background: #f1f2f6; border-top: 1px solid #dfe4ea; line-height: 1.8; }
+        .emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div style="font-size: 0.8rem; letter-spacing: 2px; color: #636e72; margin-bottom: 5px;">CHILDREN'S GENERAL HOSPITAL | NP TEAM</div>
+    <div style="font-size: 0.8rem; letter-spacing: 2px; color: #636e72; margin-bottom: 5px;">CHILDREN'S GENERAL HOSPITAL | NP PREPARATION</div>
     <button class="btn active" onclick="changeL('zh')">繁體中文</button>
     <button class="btn" onclick="changeL('en')">English</button>
 </div>
 
 <div class="container">
-    <div class="section animate__animated animate__fadeIn">
-        <div class="story-card">
-            <span class="emoji">🏥</span>
-            <div class="badge" id="b1">第 1 站：冒險準備</div>
-            <h2 id="t1">小兔奇奇的探險邀請</h2>
-            <div class="story-text" id="p1">奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。長頸鹿醫生送來一張漂亮的『探險邀請卡』，請奇奇去醫院住幾天趕走怪獸！</div>
-            <div class="parent-guide">
-                <h3 id="gt1"></h3>
-                <ul id="gc1">
-                    <li>使用孩子懂的語言：避免說「切開、開刀」，改說「把調皮怪獸請走」。</li>
-                    <li>建立掌控感：讓孩子自己選一個安撫玩具陪同住院。</li>
-                </ul>
-            </div>
+    <div class="preface animate__animated animate__fadeIn">
+        <h2 id="pref-t">給家長的心靈指南：為什麼我們需要術前心理預備？</h2>
+        <p id="pref-c">
+            對於學齡前兒童，手術的焦慮往往源於對「未知」的恐懼。研究顯示，適當的術前心理預備能顯著降低孩童的醫療創傷風險。本網頁透過卡通繪本，將住院流程轉化為「英雄冒險」，幫助孩童預期醫療行為；同時為家長提供安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後配合度並促進生理復原，讓醫療過程成為一段展現勇氣的正向經驗。
+        </p>
+        <div class="np-sign-top">
+            1134047 潘柔安 專科護理師 (Nurse Practitioner)
         </div>
     </div>
 
-    <div class="section card-scroll">
-        <div class="story-card">
-            <span class="emoji">🦸‍♂️</span>
-            <div class="badge" id="b2">第 2 站：超人換裝</div>
-            <h2 id="t2">神奇的超人飛行衣</h2>
-            <div class="story-text" id="p2">到了醫院，我們要換上特製的『超人飛行衣』(手術衣)。這件衣服背後有洞洞，是為了讓超人飛得更輕快、更方便檢查喔！</div>
-            <div class="parent-guide">
-                <h3 id="gt2"></h3>
-                <ul id="gc2">
-                    <li>角色扮演遊戲：利用醫師玩具組模擬聽診，減少對醫療器材的恐懼。</li>
-                    <li>誠實原則：不要騙孩子「只是去睡覺」，應強調「醫生會幫你做一個深層的午睡」。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section card-scroll">
-        <div class="story-card">
-            <span class="emoji">🫧</span>
-            <div class="badge" id="b3">第 3 站：魔法夢境</div>
-            <h2 id="t3">聞聞看！魔法泡泡噴霧</h2>
-            <div class="story-text" id="p3">奇奇躺在軟軟的床上，聞一聞甜甜的氣味(麻醉)，吸三口氣，你就進入彩色的夢鄉了。等夢醒了，小怪獸就被請走了。</div>
-            <div class="parent-guide">
-                <h3 id="gt3"></h3>
-                <ul id="gc3">
-                    <li>保持冷靜：孩子會觀察父母的情緒。您的冷靜是孩子最大的安全感。</li>
-                    <li>道別儀式：進手術室前給予堅定擁抱，並承諾醒來時您一定會在身邊。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section card-scroll">
-        <div class="story-card">
-            <span class="emoji">🛌</span>
-            <div class="badge" id="b4">第 4 站：能量修復</div>
-            <h2 id="t4">暖呼呼的秘密基地</h2>
-            <div class="story-text" id="p4">奇奇睜開眼睛，已經在秘密基地(恢復室)了。雖然傷口可能會有一點點緊緊痛痛的，但那代表身體正在變強壯喔！</div>
-            <div class="parent-guide">
-                <h3 id="gt4"></h3>
-                <ul id="gc4">
-                    <li>非藥物止痛：利用繪本、影片或輕音樂轉移對疼痛的注意力。</li>
-                    <li>飲食引導：遵醫囑從少量飲水開始，可準備布丁或果凍鼓勵進食。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section card-scroll">
-        <div class="story-card">
-            <span class="emoji">🏆</span>
-            <div class="badge" id="b5">第 5 站：勇者大勝利</div>
-            <h2 id="t5">頒發勇敢勳章</h2>
-            <div class="story-text" id="p5">奇奇完成任務，可以帶著勇氣勳章回家了！記得回家要乖乖吃藥、多休息，很快就能去公園玩耍囉！</div>
-            <div class="parent-guide">
-                <h3 id="gt5"></h3>
-                <ul id="gc5">
-                    <li>術後觀察：注意傷口有無紅腫及體溫變化。如有異常應立即回診。</li>
-                    <li>正向鼓勵：肯定孩子完成手術的勇氣，強化其自我復原的信心。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div id="story-container"></div>
 </div>
 
 <div class="footer">
@@ -125,31 +66,67 @@
 <script>
     const data = {
         zh: {
-            b1: "第 1 站：冒險準備", t1: "小兔奇奇的探險邀請", p1: "奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。醫生送來一張『探險邀請卡』，請奇奇去醫院住幾天趕走怪獸！",
-            b2: "第 2 站：超人換裝", t2: "神奇的超人飛行衣", p2: "換上手術衣，這就是你的超人裝備。背後的洞洞是為了讓超人飛得更輕快喔！",
-            b3: "第 3 站：魔法夢境", t3: "聞聞看！魔法泡泡噴霧", p3: "吸三口氣，進入甜甜的夢鄉（麻醉）。等夢醒了，調皮的小怪獸就被請走了。",
-            b4: "第 4 站：能量修復", t4: "暖呼呼的秘密基地", p4: "你在恢復室醒來，爸爸媽媽就在身邊。雖然傷口微痛，但你的身體正在變強壯！",
-            b5: "第 5 站：勇者大勝利", t5: "頒發勇敢勳章", p5: "奇奇完成任務可以回家了！多休息、準時吃藥，很快就能跑跑跳跳了。",
-            gc: [
-                "<li>使用孩子懂的語言：避免說開刀。</li><li>讓孩子帶安撫玩具住院。</li>",
-                "<li>遊戲轉移焦慮：角色扮演聽診。</li><li>誠實原則：強調這是深層午睡。</li>",
-                "<li>父母冷靜孩子才安心。</li><li>進手術室前堅定擁抱與承諾。</li>",
-                "<li>非藥物止痛：利用音樂影片轉移。</li><li>遵醫囑鼓勵進食。</li>",
-                "<li>觀察傷口紅腫熱痛。</li><li>肯定孩子完成手術的勇氣。</li>"
+            prefT: "給家長的心靈指南：為什麼我們需要術前心理預備？",
+            prefC: "對於學齡前兒童，手術的焦慮往往源於對「未知」的恐懼。研究顯示，適當的術前心理預備能顯著降低孩童的醫療創傷風險。本網頁透過卡通繪本，將住院流程轉化為「英雄冒險」，幫助孩童預期醫療行為；同時為家長提供安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後配合度並促進生理復原，讓醫療過程成為一段展現勇氣的正向經驗。",
+            guideTitle: "📋 Clinical Tips / 護理師建議：",
+            sections: [
+                {
+                    emoji: "🏥", badge: "第 1 站：冒險準備", title: "小兔奇奇的探險邀請",
+                    story: "奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。醫生送來一張漂亮的『探險邀請卡』，請奇奇去醫院住幾天趕走怪獸！",
+                    tips: ["使用孩子懂的語言：避免說開刀、切開。","建立掌控感：讓孩子自己選一個安撫玩具陪同住院。"]
+                },
+                {
+                    emoji: "🦸‍♂️", badge: "第 2 站：超人換裝", title: "神奇的超人飛行衣",
+                    story: "到了醫院，我們要換上特製的『超人飛行衣』(手術衣)。這件衣服背後有洞洞，是為了讓超人飛得更輕快喔！",
+                    tips: ["角色扮演遊戲：利用醫師玩具模擬聽診。","誠實原則：強調這是『深層午睡』。"]
+                },
+                {
+                    emoji: "🫧", badge: "第 3 站：魔法夢境", title: "聞聞看！魔法泡泡噴霧",
+                    story: "吸三口氣，進入甜甜的夢鄉（麻醉）。等夢醒了，調皮的小怪獸就被請走了。",
+                    tips: ["父母冷靜孩子才安心。","進手術室前堅定擁抱與承諾。"]
+                },
+                {
+                    emoji: "🛌", badge: "第 4 站：能量修復", title: "暖呼呼的秘密基地",
+                    story: "你在恢復室醒來，雖然傷口微痛，但你的身體正在變強壯！",
+                    tips: ["非藥物止痛：利用音樂影片轉移。","遵醫囑鼓勵進食。"]
+                },
+                {
+                    emoji: "🏆", badge: "第 5 站：勇者大勝利", title: "頒發勇敢勳章",
+                    story: "完成任務可以回家了！多休息、準時吃藥，很快就能跑跑跳跳了。",
+                    tips: ["觀察傷口紅腫熱痛。","肯定孩子完成手術的勇氣。"]
+                }
             ]
         },
         en: {
-            b1: "Step 1: The Invitation", t1: "Kiki's Big Adventure", p1: "Kiki has a monster in his tummy. Dr. Giraffe sent an invitation to the hospital to send the monster away!",
-            b2: "Step 2: Superhero Suit", t2: "The Magic Flight Suit", p2: "Put on your surgical gown! The opening at the back helps superheroes fly better.",
-            b3: "Step 3: Magic Dreams", t3: "The Magic Bubble Mist", p3: "Breathe in the sweet mist, take a nap, and the monster will be gone when you wake up.",
-            b4: "Step 4: Energy Base", t4: "The Warm Recovery Base", p4: "You'll wake up in the Recovery Room with Mom and Dad. Your body is getting stronger!",
-            b5: "Step 5: Mission Success", t5: "Badge of Bravery", p5: "Mission accomplished! Rest well at home, and you'll be playing again soon.",
-            gc: [
-                "<li>Use friendly language: Avoid 'cut'.</li><li>Bring a comfort toy from home.</li>",
-                "<li>Use medical play to reduce anxiety.</li><li>Be honest: Call it a deep nap.</li>",
-                "<li>Stay calm; kids mirror your energy.</li><li>Give a firm hug before surgery.</li>",
-                "<li>Distract with music or cartoons.</li><li>Encourage soft foods once approved.</li>",
-                "<li>Monitor wound for redness or fever.</li><li>Praise your child's bravery.</li>"
+            prefT: "Clinical Preface: Why Pre-op Preparation Matters?",
+            prefC: "For preschoolers, surgical anxiety stems from fear of the 'unknown.' Research shows that psychological preparation reduces medical trauma risk. This site uses storytelling to help children anticipate medical events while providing clinical tips for parents. A calm, prepared environment improves post-op cooperation and speeds up physiological recovery, turning the medical journey into a positive display of courage.",
+            guideTitle: "📋 Clinical Tips for Parents:",
+            sections: [
+                {
+                    emoji: "🏥", badge: "Step 1: Invitation", title: "Kiki's Big Adventure",
+                    story: "Kiki has a monster in his tummy. Dr. Giraffe sent a 'Mission Card' inviting Kiki to the hospital to send the monster away!",
+                    tips: ["Use child-friendly language: Avoid 'cut'.","Empowerment: Let them bring a comfort toy."]
+                },
+                {
+                    emoji: "🦸‍♂️", badge: "Step 2: Superhero Suit", title: "The Magic Flight Suit",
+                    story: "Put on your 'Flight Suit'! The opening at the back helps superheroes fly better and makes check-ups easier.",
+                    tips: ["Medical play: Mimic check-ups with toys.","Honesty: Call it a 'special deep nap'."]
+                },
+                {
+                    emoji: "🫧", badge: "Step 3: Magic Dreams", title: "The Magic Bubble Mist",
+                    story: "Breathe in the sweet mist, take three breaths, and enter a colorful dream world.",
+                    tips: ["Stay calm; your child mirrors you.","A firm hug and promise before surgery."]
+                },
+                {
+                    emoji: "🛌", badge: "Step 4: Energy Base", title: "The Recovery Base",
+                    story: "You'll wake up in the 'Secret Base'. You are getting stronger now!",
+                    tips: ["Distraction: Use music or videos for pain.","Encourage soft foods once approved."]
+                },
+                {
+                    emoji: "🏆", badge: "Step 5: Mission Success", title: "Badge of Bravery",
+                    story: "Mission accomplished! Take your badge home, rest well, and you'll be playing again soon.",
+                    tips: ["Monitor wound for redness or fever.","Praise your child's immense courage."]
+                }
             ]
         }
     };
@@ -157,13 +134,31 @@
     function changeL(l) {
         document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
         event.target.classList.add('active');
-        for(let i=1; i<=5; i++){
-            document.getElementById(`b${i}`).innerText = data[l][`b${i}`];
-            document.getElementById(`t${i}`).innerText = data[l][`t${i}`];
-            document.getElementById(`p${i}`).innerText = data[l][`p${i}`];
-            document.getElementById(`gc${i}`).innerHTML = data[l].gc[i-1];
-        }
+        document.getElementById('pref-t').innerText = data[l].prefT;
+        document.getElementById('pref-c').innerText = data[l].prefC;
+        
+        const container = document.getElementById('story-container');
+        container.innerHTML = '';
+        
+        data[l].sections.forEach((sec, index) => {
+            container.innerHTML += `
+                <div class="section ${index === 0 ? 'animate__animated animate__fadeIn' : 'card-scroll'}">
+                    <div class="story-card">
+                        <span class="emoji">${sec.emoji}</span>
+                        <div class="badge">${sec.badge}</div>
+                        <h2 class="story-title">${sec.title}</h2>
+                        <div class="story-text">${sec.story}</div>
+                        <div class="parent-guide">
+                            <h3>${data[l].guideTitle}</h3>
+                            <ul>${sec.tips.map(t => `<li>${t}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
     }
+
+    changeL('zh');
 
     window.addEventListener('scroll', () => {
         document.querySelectorAll('.card-scroll').forEach(s => {
