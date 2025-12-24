@@ -13,11 +13,10 @@
         .btn.active { background: var(--p); color: white; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
         
-        /* 專業前言樣式 */
         .preface { background: #fff; padding: 40px; border-radius: 30px; border: 2px solid var(--p); margin-bottom: 60px; line-height: 1.8; box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1); }
         .preface h2 { color: var(--p); margin-top: 0; text-align: center; font-size: 1.5rem; }
         .preface p { font-size: 1.15rem; color: #444; text-align: justify; }
-        .np-sign-top { text-align: right; margin-top: 20px; font-weight: bold; color: var(--p); }
+        .sign-top { text-align: right; margin-top: 20px; font-weight: bold; color: var(--p); }
 
         .section { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 80px; }
         .story-card { background: white; padding: 45px; border-radius: 35px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); border-top: 8px solid var(--p); position: relative; }
@@ -30,7 +29,6 @@
         .parent-guide ul { font-size: 1.1rem; padding-left: 20px; color: #555; margin: 0; }
         .parent-guide li { margin-bottom: 8px; }
         
-        /* 頁尾屬名樣式 */
         .footer { text-align: center; padding: 60px 20px; color: #636e72; background: #f1f2f6; border-top: 1px solid #dfe4ea; line-height: 1.8; }
         .emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; text-align: center; }
     </style>
@@ -38,7 +36,7 @@
 <body>
 
 <div class="header">
-    <div style="font-size: 0.8rem; letter-spacing: 2px; color: #636e72; margin-bottom: 5px;">CHILDREN'S GENERAL HOSPITAL | NP PREPARATION</div>
+    <div style="font-size: 0.8rem; letter-spacing: 2px; color: #636e72; margin-bottom: 5px;">CHILDREN'S GENERAL HOSPITAL | PEDIATRIC CARE</div>
     <button class="btn active" onclick="changeL('zh')">繁體中文</button>
     <button class="btn" onclick="changeL('en')">English</button>
 </div>
@@ -47,10 +45,10 @@
     <div class="preface animate__animated animate__fadeIn">
         <h2 id="pref-t">給家長的心靈指南：為什麼我們需要術前心理預備？</h2>
         <p id="pref-c">
-            對於學齡前兒童，手術的焦慮往往源於對「未知」的恐懼。研究顯示，適當的術前心理預備能顯著降低孩童的醫療創傷風險。本網頁透過卡通繪本，將住院流程轉化為「英雄冒險」，幫助孩童預期醫療行為；同時為家長提供安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後配合度並促進生理復原，讓醫療過程成為一段展現勇氣的正向經驗。
+            對於學齡前兒童，手術的焦慮往往源於對「未知流程」的恐懼。研究顯示，適當的術前心理建設能顯著降低孩童的抗拒感與醫療創傷風險。本網頁透過「小兔奇奇」的卡通繪本引導，將冰冷的住院流程轉化為「英雄冒險」，幫助孩童預期接下來的醫療行為；同時為家長提供專業安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後的疼痛耐受力與配合度，縮短康復路程，讓醫療過程成為一段展現勇氣的正向經驗。
         </p>
-        <div class="np-sign-top">
-            1134047 潘柔安 專科護理師 (Nurse Practitioner)
+        <div class="sign-top">
+            1134047 潘柔安
         </div>
     </div>
 
@@ -60,15 +58,15 @@
 <div class="footer">
     <strong>1134047 潘柔安</strong><br>
     針對一位對手術感到極度焦慮的學齡前兒童之衛教網頁<br>
-    © 2025 Children's General Hospital | Pediatric NP Team
+    © 2025 Children's General Hospital | Pediatric Team
 </div>
 
 <script>
     const data = {
         zh: {
             prefT: "給家長的心靈指南：為什麼我們需要術前心理預備？",
-            prefC: "對於學齡前兒童，手術的焦慮往往源於對「未知」的恐懼。研究顯示，適當的術前心理預備能顯著降低孩童的醫療創傷風險。本網頁透過卡通繪本，將住院流程轉化為「英雄冒險」，幫助孩童預期醫療行為；同時為家長提供安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後配合度並促進生理復原，讓醫療過程成為一段展現勇氣的正向經驗。",
-            guideTitle: "📋 Clinical Tips / 護理師建議：",
+            prefC: "對於學齡前兒童，手術的焦慮往往源於對「未知流程」的恐懼。研究顯示，適當的術前心理建設能顯著降低孩童的抗拒感與醫療創傷風險。本網頁透過「小兔奇奇」的卡通繪本引導，將冰冷的住院流程轉化為「英雄冒險」，幫助孩童預期接下來的醫療行為；同時為家長提供專業安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後的疼痛耐受力與配合度，縮短康復路程，讓醫療過程成為一段展現勇氣的正向經驗。",
+            guideTitle: "📋 Clinical Tips / 專家建議：",
             sections: [
                 {
                     emoji: "🏥", badge: "第 1 站：冒險準備", title: "小兔奇奇的探險邀請",
@@ -78,7 +76,7 @@
                 {
                     emoji: "🦸‍♂️", badge: "第 2 站：超人換裝", title: "神奇的超人飛行衣",
                     story: "到了醫院，我們要換上特製的『超人飛行衣』(手術衣)。這件衣服背後有洞洞，是為了讓超人飛得更輕快喔！",
-                    tips: ["角色扮演遊戲：利用醫師玩具模擬聽診。","誠實原則：強調這是『深層午睡』。"]
+                    tips: ["遊戲轉移焦慮：角色扮演聽診。","維持生活規律增加安全感。"]
                 },
                 {
                     emoji: "🫧", badge: "第 3 站：魔法夢境", title: "聞聞看！魔法泡泡噴霧",
@@ -98,7 +96,7 @@
             ]
         },
         en: {
-            prefT: "Clinical Preface: Why Pre-op Preparation Matters?",
+            prefT: "Clinical Preface: Why Preparation Matters?",
             prefC: "For preschoolers, surgical anxiety stems from fear of the 'unknown.' Research shows that psychological preparation reduces medical trauma risk. This site uses storytelling to help children anticipate medical events while providing clinical tips for parents. A calm, prepared environment improves post-op cooperation and speeds up physiological recovery, turning the medical journey into a positive display of courage.",
             guideTitle: "📋 Clinical Tips for Parents:",
             sections: [
