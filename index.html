@@ -12,23 +12,19 @@
         .btn { border: 2px solid var(--p); background: none; padding: 10px 25px; border-radius: 25px; cursor: pointer; margin: 0 8px; font-weight: bold; transition: 0.3s; }
         .btn.active { background: var(--p); color: white; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
-        
         .preface { background: #fff; padding: 40px; border-radius: 30px; border: 2px solid var(--p); margin-bottom: 60px; line-height: 1.8; box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1); }
         .preface h2 { color: var(--p); margin-top: 0; text-align: center; font-size: 1.5rem; }
         .preface p { font-size: 1.15rem; color: #444; text-align: justify; }
         .sign-top { text-align: right; margin-top: 20px; font-weight: bold; color: var(--p); }
-
         .section { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 80px; }
         .story-card { background: white; padding: 45px; border-radius: 35px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); border-top: 8px solid var(--p); position: relative; }
         .badge { background: #6c5ce71a; color: var(--p); padding: 5px 15px; border-radius: 12px; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: inline-block; }
         h2.story-title { color: var(--p); font-size: 2.2rem; margin-top: 10px; }
         .story-text { font-size: 1.5rem; line-height: 1.8; color: #444; margin: 25px 0; border-bottom: 1px dashed #ddd; padding-bottom: 25px; }
-        
         .parent-guide { background: #fffcf0; padding: 25px; border-radius: 20px; border-left: 6px solid #feca57; }
         .parent-guide h3 { margin: 0 0 15px 0; color: #b88e2f; font-size: 1.2rem; }
         .parent-guide ul { font-size: 1.1rem; padding-left: 20px; color: #555; margin: 0; }
         .parent-guide li { margin-bottom: 8px; }
-        
         .footer { text-align: center; padding: 60px 20px; color: #636e72; background: #f1f2f6; border-top: 1px solid #dfe4ea; line-height: 1.8; }
         .emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; text-align: center; }
     </style>
@@ -37,22 +33,19 @@
 
 <div class="header">
     <div style="font-size: 0.8rem; letter-spacing: 2px; color: #636e72; margin-bottom: 5px;">CHILDREN'S GENERAL HOSPITAL | PEDIATRIC CARE</div>
-    <button class="btn active" onclick="changeL('zh')">繁體中文</button>
-    <button class="btn" onclick="changeL('en')">English</button>
+    <button class="btn active" id="btn-zh" onclick="changeL('zh')">繁體中文</button>
+    <button class="btn" id="btn-en" onclick="changeL('en')">English</button>
 </div>
 
 <div class="container">
-    <div class="preface animate__animated animate__fadeIn">
+    <div class="preface">
         <h2 id="pref-t">給家長的心靈指南：為什麼我們需要術前心理預備？</h2>
-        <p id="pref-c">
-            對於學齡前兒童，手術的焦慮往往源於對「未知流程」的恐懼。研究顯示，適當的術前心理建設能顯著降低孩童的抗拒感與醫療創傷風險。本網頁透過「小兔奇奇」的卡通繪本引導，將冰冷的住院流程轉化為「英雄冒險」，幫助孩童預期接下來的醫療行為；同時為家長提供專業安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後的疼痛耐受力與配合度，縮短康復路程，讓醫療過程成為一段展現勇氣的正向經驗。
-        </p>
-        <div class="sign-top">
-            1134047 潘柔安
-        </div>
+        <p id="pref-c">對於學齡前兒童，手術的焦慮往往源於對「未知流程」的恐懼。研究顯示，適當的術前心理建設能顯著降低孩童的抗拒感與醫療創傷風險。本網頁透過「小兔奇奇」的卡通繪本引導，將冰冷的住院流程轉化為「英雄冒險」，幫助孩童預期接下來的醫療行為；同時為家長提供專業安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後的疼痛耐受力與配合度，縮短康復路程，讓醫療過程成為一段展現勇氣的正向經驗。</p>
+        <div class="sign-top">1134047 潘柔安</div>
     </div>
 
-    <div id="story-container"></div>
+    <div id="story-content">
+        </div>
 </div>
 
 <div class="footer">
@@ -66,103 +59,53 @@
         zh: {
             prefT: "給家長的心靈指南：為什麼我們需要術前心理預備？",
             prefC: "對於學齡前兒童，手術的焦慮往往源於對「未知流程」的恐懼。研究顯示，適當的術前心理建設能顯著降低孩童的抗拒感與醫療創傷風險。本網頁透過「小兔奇奇」的卡通繪本引導，將冰冷的住院流程轉化為「英雄冒險」，幫助孩童預期接下來的醫療行為；同時為家長提供專業安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後的疼痛耐受力與配合度，縮短康復路程，讓醫療過程成為一段展現勇氣的正向經驗。",
-            guideTitle: "📋 Clinical Tips / 專家建議：",
+            guide: "📋 Clinical Tips / 專家建議：",
             sections: [
-                {
-                    emoji: "🏥", badge: "第 1 站：冒險準備", title: "小兔奇奇的探險邀請",
-                    story: "奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。醫生送來一張漂亮的『探險邀請卡』，請奇奇去醫院住幾天趕走怪獸！",
-                    tips: ["使用孩子懂的語言：避免說開刀、切開。","建立掌控感：讓孩子自己選一個安撫玩具陪同住院。"]
-                },
-                {
-                    emoji: "🦸‍♂️", badge: "第 2 站：超人換裝", title: "神奇的超人飛行衣",
-                    story: "到了醫院，我們要換上特製的『超人飛行衣』(手術衣)。這件衣服背後有洞洞，是為了讓超人飛得更輕快喔！",
-                    tips: ["遊戲轉移焦慮：角色扮演聽診。","維持生活規律增加安全感。"]
-                },
-                {
-                    emoji: "🫧", badge: "第 3 站：魔法夢境", title: "聞聞看！魔法泡泡噴霧",
-                    story: "吸三口氣，進入甜甜的夢鄉（麻醉）。等夢醒了，調皮的小怪獸就被請走了。",
-                    tips: ["父母冷靜孩子才安心。","進手術室前堅定擁抱與承諾。"]
-                },
-                {
-                    emoji: "🛌", badge: "第 4 站：能量修復", title: "暖呼呼的秘密基地",
-                    story: "你在恢復室醒來，雖然傷口微痛，但你的身體正在變強壯！",
-                    tips: ["非藥物止痛：利用音樂影片轉移。","遵醫囑鼓勵進食。"]
-                },
-                {
-                    emoji: "🏆", badge: "第 5 站：勇者大勝利", title: "頒發勇敢勳章",
-                    story: "完成任務可以回家了！多休息、準時吃藥，很快就能跑跑跳跳了。",
-                    tips: ["觀察傷口紅腫熱痛。","肯定孩子完成手術的勇氣。"]
-                }
+                { emoji: "🏥", badge: "第 1 站：冒險準備", title: "小兔奇奇的探險邀請", story: "奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。醫生送來一張漂亮的『探險邀請卡』，請奇奇去醫院住幾天趕走怪獸！", tips: ["使用孩子懂的語言：避免說開刀、切開。","建立掌控感：讓孩子自己選一個安撫玩具陪同。"] },
+                { emoji: "🦸‍♂️", badge: "第 2 站：超人換裝", title: "神奇的超人飛行衣", story: "到了醫院，我們要換上特製的『超人飛行衣』(手術衣)。這件衣服背後有洞洞，是為了讓超人飛得更輕快喔！", tips: ["角色扮演遊戲：利用醫師玩具模擬聽診。","維持生活規律增加安全感。"] },
+                { emoji: "🫧", badge: "第 3 站：魔法夢境", title: "聞聞看！魔法泡泡噴霧", story: "吸三口氣，進入甜甜的夢鄉（麻醉）。等夢醒了，調皮的小怪獸就被請走了。", tips: ["父母冷靜孩子才安心。","進手術室前堅定擁抱與承諾。"] },
+                { emoji: "🛌", badge: "第 4 站：能量修復", title: "暖呼呼的秘密基地", story: "你在恢復室醒來，雖然傷口微痛，但你的身體正在變強壯！", tips: ["非藥物止痛：利用音樂影片轉移。","遵醫囑鼓勵進食。"] },
+                { emoji: "🏆", badge: "第 5 站：勇者大勝利", title: "頒發勇敢勳章", story: "完成任務可以回家了！多休息、準時吃藥，很快就能跑跑跳跳了。", tips: ["觀察傷口紅腫熱痛。","肯定孩子完成手術的勇氣。"] }
             ]
         },
         en: {
-            prefT: "Clinical Preface: Why Preparation Matters?",
-            prefC: "For preschoolers, surgical anxiety stems from fear of the 'unknown.' Research shows that psychological preparation reduces medical trauma risk. This site uses storytelling to help children anticipate medical events while providing clinical tips for parents. A calm, prepared environment improves post-op cooperation and speeds up physiological recovery, turning the medical journey into a positive display of courage.",
-            guideTitle: "📋 Clinical Tips for Parents:",
+            prefT: "Clinical Preface: Why Pre-op Preparation Matters?",
+            prefC: "For preschoolers, surgical anxiety stems from fear of the 'unknown.' Research shows that psychological preparation reduces medical trauma risk. This site uses storytelling to help children anticipate medical events while providing clinical tips for parents.",
+            guide: "📋 Clinical Tips for Parents:",
             sections: [
-                {
-                    emoji: "🏥", badge: "Step 1: Invitation", title: "Kiki's Big Adventure",
-                    story: "Kiki has a monster in his tummy. Dr. Giraffe sent a 'Mission Card' inviting Kiki to the hospital to send the monster away!",
-                    tips: ["Use child-friendly language: Avoid 'cut'.","Empowerment: Let them bring a comfort toy."]
-                },
-                {
-                    emoji: "🦸‍♂️", badge: "Step 2: Superhero Suit", title: "The Magic Flight Suit",
-                    story: "Put on your 'Flight Suit'! The opening at the back helps superheroes fly better and makes check-ups easier.",
-                    tips: ["Medical play: Mimic check-ups with toys.","Honesty: Call it a 'special deep nap'."]
-                },
-                {
-                    emoji: "🫧", badge: "Step 3: Magic Dreams", title: "The Magic Bubble Mist",
-                    story: "Breathe in the sweet mist, take three breaths, and enter a colorful dream world.",
-                    tips: ["Stay calm; your child mirrors you.","A firm hug and promise before surgery."]
-                },
-                {
-                    emoji: "🛌", badge: "Step 4: Energy Base", title: "The Recovery Base",
-                    story: "You'll wake up in the 'Secret Base'. You are getting stronger now!",
-                    tips: ["Distraction: Use music or videos for pain.","Encourage soft foods once approved."]
-                },
-                {
-                    emoji: "🏆", badge: "Step 5: Mission Success", title: "Badge of Bravery",
-                    story: "Mission accomplished! Take your badge home, rest well, and you'll be playing again soon.",
-                    tips: ["Monitor wound for redness or fever.","Praise your child's immense courage."]
-                }
+                { emoji: "🏥", badge: "Step 1: Invitation", title: "Kiki's Big Adventure", story: "Kiki has a monster in his tummy. Dr. Giraffe sent an invitation to the hospital to send the monster away!", tips: ["Use friendly language: Avoid 'cut'.","Empowerment: Bring a comfort toy."] },
+                { emoji: "🦸‍♂️", badge: "Step 2: Superhero Suit", title: "The Magic Flight Suit", story: "Put on your 'Flight Suit'! The opening helps superheroes fly better and makes check-ups easier.", tips: ["Medical play: Mimic check-ups with toys.","Honesty: Call it a 'special deep nap'."] },
+                { emoji: "🫧", badge: "Step 3: Magic Dreams", title: "The Magic Bubble Mist", story: "Breathe in the sweet mist, take three breaths, and enter a colorful dream world.", tips: ["Stay calm; your child mirrors you.","A firm hug and promise before surgery."] },
+                { emoji: "🛌", badge: "Step 4: Energy Base", title: "The Recovery Base", story: "You woke up in the 'Secret Base'. You are getting stronger now!", tips: ["Distraction: Use music or videos for pain.","Post-op diet: Offer pudding once approved."] },
+                { emoji: "🏆", badge: "Step 5: Mission Success", title: "Badge of Bravery", story: "Mission accomplished! Rest well at home, and you'll be playing again soon.", tips: ["Monitor wound for redness.","Praise your child's immense courage."] }
             ]
         }
     };
 
-    function changeL(l) {
-        document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
-        document.getElementById('pref-t').innerText = data[l].prefT;
-        document.getElementById('pref-c').innerText = data[l].prefC;
+    function changeL(lang) {
+        document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.getElementById('pref-t').innerText = data[lang].prefT;
+        document.getElementById('pref-c').innerText = data[lang].prefC;
         
-        const container = document.getElementById('story-container');
-        container.innerHTML = '';
-        
-        data[l].sections.forEach((sec, index) => {
-            container.innerHTML += `
-                <div class="section ${index === 0 ? 'animate__animated animate__fadeIn' : 'card-scroll'}">
-                    <div class="story-card">
-                        <span class="emoji">${sec.emoji}</span>
-                        <div class="badge">${sec.badge}</div>
-                        <h2 class="story-title">${sec.title}</h2>
-                        <div class="story-text">${sec.story}</div>
-                        <div class="parent-guide">
-                            <h3>${data[l].guideTitle}</h3>
-                            <ul>${sec.tips.map(t => `<li>${t}</li>`).join('')}</ul>
-                        </div>
+        const container = document.getElementById('story-content');
+        container.innerHTML = data[lang].sections.map(sec => `
+            <div class="section card-scroll animate__animated animate__fadeInUp">
+                <div class="story-card">
+                    <span class="emoji">${sec.emoji}</span>
+                    <div class="badge">${sec.badge}</div>
+                    <h2 class="story-title">${sec.title}</h2>
+                    <div class="story-text">${sec.story}</div>
+                    <div class="parent-guide">
+                        <h3>${data[lang].guide}</h3>
+                        <ul>${sec.tips.map(t => `<li>${t}</li>`).join('')}</ul>
                     </div>
                 </div>
-            `;
-        });
+            </div>
+        `).join('');
     }
-
-    changeL('zh');
-
-    window.addEventListener('scroll', () => {
-        document.querySelectorAll('.card-scroll').forEach(s => {
-            if(s.getBoundingClientRect().top < window.innerHeight - 100) s.classList.add('animate__animated', 'animate__fadeInUp');
-        });
-    });
+    // 網頁開啟時先載入中文內容
+    window.onload = () => changeL('zh');
 </script>
 </body>
 </html>
