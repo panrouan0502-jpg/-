@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>血壓守護者：健康小提醒</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #f1faee;
+            --accent-color: #a8dadc;
+            --text-color: #1d3557;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 語言切換列 */
+        .lang-switch {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        button.lang-btn {
+            background: white;
+            border: 2px solid var(--accent-color);
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button.lang-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* 主題導入區 */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #a8dadc 0%, #f1faee 100%);
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; max-width: 600px; }
+
+        /* 內容區塊 */
+        .content-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-left: 10px solid var(--accent-color);
+        }
+
+        /* 重點提示小圓圈 */
+        .tip-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        /* CTA 按鈕 */
+        .cta-container {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover { transform: scale(1.05); }
+
+        /* 響應式 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="lang-switch">
+    <button class="lang-btn active" onclick="switchLang('zh')">國語</button>
+    <button class="lang-btn" onclick="switchLang('tw')">台語</button>
+    <button class="lang-btn" onclick="switchLang('hak')">客語</button>
+    <button class="lang-btn" onclick="switchLang('en')">English</button>
+</div>
+
+<div class="hero animate__animated animate__fadeIn">
+    <h1 id="hero-title">忘了吃藥怎麼辦？</h1>
+    <p id="hero-desc">您的心血管需要一位「準時」的好保鏢！讓我們用簡單的方法，把健康穩穩守住。</p>
+</div>
+
+<div class="content-section">
+    <div class="card animate__animated" id="card-1">
+        <h2 id="core-title">核心服藥三步驟</h2>
+        <ul style="font-size: 1.3rem;">
+            <li id="step1">☀️ 早上起床：刷牙後，就把「紅色那顆」吃掉。<span class="tip-icon" onclick="alertMsg(1)">?</span></li>
+            <li id="step2">🍴 跟著三餐：飯碗旁邊就是藥盒，看到飯就想到藥。<span class="tip-icon" onclick="alertMsg(2)">?</span></li>
+            <li id="step3">📱 鬧鐘響起：手機設定「唱歌」，它唱你就吃。<span class="tip-icon" onclick="alertMsg(3)">?</span></li>
+        </ul>
+    </div>
+
+    <div class="card animate__animated" id="card-2" style="border-left-color: var(--primary-color);">
+        <h2 id="remind-title">溫馨小叮嚀</h2>
+        <p id="remind-text" style="font-size: 1.2rem;">忘記吃藥時，千萬不要一次吃兩顆喔！那會讓血壓「坐雲霄飛車」太刺激了。</p>
+    </div>
+</div>
+
+<div class="cta-container">
+    <button class="cta-btn" onclick="showFinalMsg()" id="cta-text">點我領取健康秘訣</button>
+</div>
+
+<script>
+    const content = {
+        zh: {
+            heroT: "忘了吃藥怎麼辦？", heroD: "您的心血管需要一位「準時」的好保鏢！讓我們用簡單的方法，把健康穩穩守住。",
+            coreT: "核心服藥三步驟", step1: "☀️ 早上起床：刷牙後，就把藥吃掉。", step2: "🍴 跟著三餐：飯碗旁邊放藥盒，看到飯就想到藥。", step3: "📱 鬧鐘響起：手機設定響鈴，響了就吃。",
+            remindT: "溫馨小叮嚀", remindD: "忘記吃藥時，千萬不要一次吃兩顆！血壓太低會危險喔。",
+            cta: "點我領取健康秘訣", final: "「準時吃藥，血壓乖乖，健康長壽呷百二！」",
+            tips: ["這叫『習慣連鎖』，最不容易忘記喔！", "藥盒放在飯桌中間，就像加菜一樣。", "如果真的忘了，想起來趕快吃就好，別補吃兩份。"]
+        },
+        tw: {
+            heroT: "袂記吃藥仔欲按怎？", heroD: "心臟愛人來保護，吃藥仔愛準時！咱用簡單的方法，將健康顧予好。",
+            coreT: "吃藥仔三招", step1: "☀️ 早起洗面：洗好面，藥仔著先吃。", step2: "🍴 跟三餐走：藥盒放桌頂，看著飯著想到藥。", step3: "📱 電鈴叮嚀：手機仔定時，叫一聲吃一擺。",
+            remindT: "溫馨提醒", remindD: "若是袂記吃，毋通一次吃兩粒！血壓若是太低會頭暈喔。",
+            cta: "點我看健康秘訣", final: "「準時吃藥，身體勇健，快樂活到百二歲！」",
+            tips: ["按呢做尚簡單，絕對袂記落！", "藥盒放飯桌，全家人攏幫你記。", "袂記的時陣趕緊補吃就好，毋通吃兩倍喔。"]
+        },
+        hak: {
+            heroT: "毋記得食藥仰般辦？", heroD: "心臟愛人來保護，食藥愛準時！用簡單个方法，把健康顧好勢。",
+            coreT: "食藥个三步驟", step1: "☀️ 朝晨起身：洗面刷牙了後，就愛食藥。", step2: "🍴 跟等三餐：藥盒放桌頂，看到飯就想到藥。", step3: "📱 鬧鐘響：手機定時，響了就食。",
+            remindT: "溫馨提醒", remindD: "毋記得食，毋好一次食兩粒！血壓太低會無精神喔。",
+            cta: "點我領健康秘訣", final: "「準時食藥，身體健康，活到百二歲！」",
+            tips: ["按呢做最好記，毋會毋記得！", "藥盒放飯桌，看到就食。", "毋記得个時節快快補食，毋好食兩份。"]
+        },
+        en: {
+            heroT: "Forgot Your Meds?", heroD: "Your heart needs a punctual bodyguard! Let's keep your blood pressure stable with these simple tips.",
+            coreT: "3 Steps to Success", step1: "☀️ Morning Routine: Take it right after brushing your teeth.", step2: "🍴 Mealtime Buddy: Keep the pillbox on the dining table.", step3: "📱 Phone Alarm: When it rings, it's time to take your pill.",
+            remindT: "Warm Reminder", remindD: "If you miss a dose, never take two at once! It's safer to stay steady.",
+            cta: "Get My Health Tip", final: "“Punctual medicine means stable pressure and a long, happy life!”",
+            tips: ["Combine it with your daily habits!", "Visual cues like the pillbox are your best friends.", "Missed a dose? Just take it when you remember, but don't double up."]
+        }
+    };
+
+    let currentLang = 'zh';
+
+    function switchLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        document.getElementById('hero-title').innerText = content[lang].heroT;
+        document.getElementById('hero-desc').innerText = content[lang].heroD;
+        document.getElementById('core-title').innerText = content[lang].coreT;
+        document.getElementById('step1').innerHTML = content[lang].step1 + `<span class="tip-icon" onclick="alertMsg(1)">?</span>`;
+        document.getElementById('step2').innerHTML = content[lang].step2 + `<span class="tip-icon" onclick="alertMsg(2)">?</span>`;
+        document.getElementById('step3').innerHTML = content[lang].step3 + `<span class="tip-icon" onclick="alertMsg(3)">?</span>`;
+        document.getElementById('remind-title').innerText = content[lang].remindT;
+        document.getElementById('remind-text').innerText = content[lang].remindD;
+        document.getElementById('cta-text').innerText = content[lang].cta;
+    }
+
+    function alertMsg(num) {
+        alert(content[currentLang].tips[num-1]);
+    }
+
+    function showFinalMsg() {
+        alert(content[currentLang].final);
+    }
+
+    // 捲動動畫偵測
+    window.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 100) {
+                card.classList.add('animate__fadeInUp');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
