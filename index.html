@@ -3,129 +3,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1134047 潘柔安｜兒童手術衛教網頁</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>護理專業生涯規劃 - 潘柔安</title>
     <style>
-        :root { --p: #6c5ce7; --s: #ff7675; --bg: #fdfcfb; --txt: #2d3436; }
-        body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; background: var(--bg); color: var(--txt); }
-        .header { position: sticky; top: 0; background: white; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        .preface { background: #fff; padding: 40px; border-radius: 30px; border: 2px solid var(--p); margin-bottom: 60px; line-height: 1.8; box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1); }
-        .preface h2 { color: var(--p); margin-top: 0; text-align: center; font-size: 1.5rem; }
-        .preface p { font-size: 1.15rem; color: #444; text-align: justify; }
-        .sign-top { text-align: right; margin-top: 20px; font-weight: bold; color: var(--p); }
-        .section { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 80px; }
-        .story-card { background: white; padding: 45px; border-radius: 35px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); border-top: 8px solid var(--p); }
-        .badge { background: #6c5ce71a; color: var(--p); padding: 5px 15px; border-radius: 12px; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: inline-block; }
-        h2.story-title { color: var(--p); font-size: 2.2rem; margin-top: 10px; }
-        .story-text { font-size: 1.5rem; line-height: 1.8; color: #444; margin: 25px 0; border-bottom: 1px dashed #ddd; padding-bottom: 25px; }
-        .parent-guide { background: #fffcf0; padding: 25px; border-radius: 20px; border-left: 6px solid #feca57; }
-        .parent-guide h3 { margin: 0 0 15px 0; color: #b88e2f; font-size: 1.2rem; }
-        .parent-guide ul { font-size: 1.1rem; padding-left: 20px; color: #555; margin: 0; }
-        .parent-guide li { margin-bottom: 8px; }
-        .footer { text-align: center; padding: 60px 20px; color: #636e72; background: #f1f2f6; border-top: 1px solid #dfe4ea; line-height: 1.8; }
-        .emoji { font-size: 3.5rem; display: block; margin-bottom: 10px; text-align: center; }
+        :root {
+            --primary-color: #5B9AA0; /* 溫暖的藍綠色 */
+            --secondary-color: #D6E4E5; 
+            --accent-color: #E97777; /* 重點色 */
+            --text-color: #2C3333; 
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            background-color: #F7FBFC;
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        /* --- 導航與 Hero 區塊 --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #467a7f);
+            color: var(--white);
+            padding: 80px 20px 120px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .student-id {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .intro-story {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .highlight {
+            color: #FFD369; /* 黃色高亮 */
+            font-weight: bold;
+        }
+
+        /* --- 通用容器 --- */
+        .container {
+            max-width: 900px;
+            margin: -80px auto 0;
+            padding: 0 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- 卡片區塊設計 --- */
+        .section-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* --- 關於我 --- */
+        .profile-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .profile-img-box { flex: 1; min-width: 250px; text-align: center; }
+        .profile-img {
+            width: 100%; max-width: 300px; border-radius: 20px;
+            border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transform: rotate(-2deg); transition: transform 0.3s;
+        }
+        .profile-img:hover { transform: rotate(0deg) scale(1.02); }
+        .profile-text { flex: 1.5; min-width: 280px; }
+        .tag { display: inline-block; background: #eee; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; color: #666; margin-left: 5px; }
+
+        /* --- 優勢與缺點 (Grid Layout) --- */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) { .swot-grid { grid-template-columns: 1fr; } }
+        
+        .swot-box {
+            padding: 25px;
+            border-radius: 15px;
+        }
+        .swot-good { background-color: #E8F6F3; border: 2px solid #A2D9CE; }
+        .swot-bad { background-color: #FDF2E9; border: 2px solid #F5CBA7; }
+        .swot-title { font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; display: block; }
+
+        /* --- 動機三部曲 (Story Cards) --- */
+        .story-container { display: flex; flex-direction: column; gap: 40px; }
+        .story-item {
+            display: flex; align-items: center; gap: 30px; background: #fff;
+            padding: 20px; border-radius: 15px; border-bottom: 3px solid var(--secondary-color);
+        }
+        @media (max-width: 700px) { .story-item { flex-direction: column; } }
+        .story-img-frame { flex: 1; max-width: 250px; }
+        .story-img-frame img { width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .story-content { flex: 2; }
+        .story-badge {
+            display: inline-block; padding: 5px 15px; background: var(--primary-color);
+            color: white; border-radius: 20px; font-size: 0.9rem; margin-bottom: 10px;
+        }
+
+        /* --- 挑戰與對策 (Challenge Section) --- */
+        .challenge-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .challenge-box {
+            flex: 1;
+            min-width: 300px;
+            background: #F9EBEA;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #C0392B;
+        }
+        .challenge-box.solution {
+            background: #EAF2F8;
+            border-left: 5px solid #2980B9;
+        }
+
+        /* --- 策略區塊 (Strategy Box) --- */
+        .strategy-box {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .strategy-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- 列表樣式 --- */
+        ul { list-style: none; padding-left: 0; }
+        li { margin-bottom: 15px; padding-left: 30px; position: relative; }
+        li::before { content: "♥"; color: var(--accent-color); position: absolute; left: 0; top: 2px; }
+
+        /* --- 互動按鈕 --- */
+        .interactive-btn {
+            background-color: var(--secondary-color); color: var(--primary-color);
+            border: 2px solid var(--primary-color); padding: 10px 20px;
+            border-radius: 30px; font-size: 1rem; cursor: pointer;
+            transition: all 0.3s; font-weight: bold; display: inline-block; margin-top: 10px;
+        }
+        .interactive-btn:hover { background-color: var(--primary-color); color: var(--white); transform: scale(1.05); }
+
+        /* --- 底部 CTA --- */
+        .cta-section { text-align: center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .main-cta-btn {
+            background-color: var(--accent-color); color: var(--white); border: none;
+            padding: 20px 50px; font-size: 1.5rem; border-radius: 50px; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(233, 119, 119, 0.4); transition: transform 0.2s;
+            animation: pulse 2s infinite; margin-top: 30px;
+        }
+        .main-cta-btn:active { transform: scale(0.95); }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(233, 119, 119, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(233, 119, 119, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(233, 119, 119, 0); }
+        }
+
+        /* --- 彈出視窗 --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); display: none;
+            justify-content: center; align-items: center; z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: var(--white); padding: 40px; border-radius: 20px;
+            max-width: 500px; width: 90%; text-align: center;
+            animation: popIn 0.3s ease-out;
+        }
+        .modal-close {
+            margin-top: 20px; padding: 10px 30px;
+            background: var(--text-color); color: white; border: none;
+            border-radius: 10px; cursor: pointer;
+        }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <div style="font-size: 0.8rem; letter-spacing: 2px; color: #636e72;">CHILDREN'S GENERAL HOSPITAL | PEDIATRIC CARE</div>
-</div>
+    <header>
+        <h1>護理專業生涯規劃</h1>
+        <div class="student-id">1134047 潘柔安 同學</div>
+        <div class="intro-story">
+            <p>雖然我是個社恐小透明，但我有一顆想當南丁格爾的強心臟！💓</p>
+            <br>
+            <p>大家都說護理師是天使 👼</p>
+            <p>但沒人告訴我，會先遇到 <span class="highlight">「魔鬼大王」</span> 跟 <span class="highlight">「噴火龍學姊」</span> 🔥</p>
+            <p style="margin-top: 15px; font-style: italic; opacity: 0.9;">（差點以為我的護理生涯要光速登出了... 🏃‍♀️💨）</p>
+        </div>
+    </header>
 
-<div class="container">
-    <div class="preface">
-        <h2>為什麼我們需要術前心理預備？</h2>
-        <p>對於學齡前兒童，手術的焦慮往往源於對「未知」的恐懼。研究顯示，適當的術前心理建設能顯著降低孩童的抗拒感與醫療創傷風險。本網頁透過「小兔奇奇」的卡通繪本引導，將住院流程轉化為「英雄冒險」，幫助孩童預期接下來的醫療行為；同時為家長提供專業安撫技巧。當孩子能理解環境並感受到父母的冷靜，將能提升術後的疼痛耐受力與配合度，縮短康復路程。</p>
-        <div class="sign-top">1134047 潘柔安</div>
-    </div>
+    <main class="container">
 
-    <div class="section">
-        <div class="story-card">
-            <span class="emoji">🏥</span>
-            <div class="badge">第 1 站：冒險準備</div>
-            <h2 class="story-title">小兔奇奇的探險邀請</h2>
-            <div class="story-text">奇奇的肚子裡住了一個調皮小怪獸，讓他不舒服。醫生送來一張漂亮的『探險邀請卡』，請奇奇去醫院住幾天趕走怪獸！</div>
-            <div class="parent-guide">
-                <h3>📋 護理師給家長的建議：</h3>
+        <section class="section-card">
+            <h2>關於我 (About Me)</h2>
+            <div class="profile-layout">
+                <div class="profile-img-box">
+                    <img src="me.jpg" alt="潘柔安與貓" class="profile-img">
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #666;">📸 這是曼赤肯主子與他的奴才</p>
+                </div>
+                <div class="profile-text">
+                    <ul class="about-list">
+                        <li><strong>🐣 2002 出生</strong><br>來自花蓮 <span class="tag">好山好水好無聊 🏞️</span></li>
+                        <li><strong>🎓 學歷轉變</strong><br>慈濟大學資管系 ➡️ <strong>轉學來元智</strong><br><span style="font-size: 0.95rem; color: var(--accent-color);">⚠️ 怨念：每天爬死人坡爬到懷疑人生 🧗‍♀️💦</span></li>
+                        <li><strong>❤️ 興趣愛好</strong>
+                            <ul style="margin-top: 10px; font-size: 0.95rem;">
+                                <li>🏥 <strong>上班</strong>：目前在 ENT 診所修煉中</li>
+                                <li>💤 <strong>睡覺</strong>：人生最重要的儀式</li>
+                                <li>🐱 <strong>吸貓</strong>：我家有隻短腿曼赤肯</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>自我分析：優勢與成長</h2>
+            <div class="swot-grid">
+                <div class="swot-box swot-good">
+                    <span class="swot-title" style="color: #2E86C1;">✨ 我的優勢 (Strengths)</span>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>熱心助人、同理心</strong>：容易換位思考，理解病人的不適。</li>
+                        <li><strong>細心觀察</strong>：診所工作經驗讓我習慣留意細節。</li>
+                        <li><strong>耐心傾聽</strong>：願意花時間聽病人說話，不急躁。</li>
+                    </ul>
+                </div>
+                <div class="swot-box swot-bad">
+                    <span class="swot-title" style="color: #D35400;">🌱 待改進 (Improvements)</span>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>慢熱、內向</strong>：社恐屬性，需要時間適應新環境。</li>
+                        <li><strong>臨床經驗</strong>：技術尚在累積中，需要多練。</li>
+                        <li><strong>主動溝通</strong>：面對學姊時容易緊張，要練習更勇敢表達。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>初心故事：為什麼選擇護理？</h2>
+            <div class="story-container">
+                <div class="story-item">
+                    <div class="story-img-frame"><img src="dog.jpg" alt="上班好累的狗狗"></div>
+                    <div class="story-content">
+                        <span class="story-badge">WHY? 起點</span>
+                        <h3>大一的意外插曲</h3>
+                        <p>大一時我在耳鼻喉科診所打工，那是第一次接觸護理。雖然每天像這隻狗狗一樣「上班好累喔💤」，但在忙碌中，我發現自己對照顧人這件事，竟有著意想不到的興趣。</p>
+                    </div>
+                </div>
+                <div class="story-item">
+                    <div class="story-img-frame"><img src="nametag.jpg" alt="花蓮慈濟名牌"></div>
+                    <div class="story-content">
+                        <span class="story-badge">WHAT? 實踐</span>
+                        <h3>臨床的實戰驗證</h3>
+                        <p>為了確定不是三分鐘熱度，我到<strong>花蓮慈濟醫院擔任心臟內科門診護佐</strong>。加上診所經驗，看著名牌上的名字，我更加確定：這就是我要走的路。</p>
+                    </div>
+                </div>
+                <div class="story-item">
+                    <div class="story-img-frame"><img src="dad.jpg" alt="小時候與爸爸"></div>
+                    <div class="story-content">
+                        <span class="story-badge">WHO? 決心</span>
+                        <h3>最深刻的轉身</h3>
+                        <p>轉學動力來自家人。之前爸爸小中風，我發現自己幫不上忙，那種無力感讓我自責。<br><strong>「我要轉學，把護理師執照考到！」</strong>這是我對自己的承諾，也是為了讓爸媽安心。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>短期目標：播種期 (1-2年)</h2>
+            <p><strong>核心任務：完成實習、取得執照、提升英文</strong></p>
+            <ul>
+                <li><strong>完成臨床實習</strong>：掌握基本臨床技能，順利度過每一站。</li>
+                <li><strong>取得護理師執照</strong>：全力準備國考，這是最基本的門票。</li>
+                <li><strong>提升英文能力</strong>：為了未來，也為了......<strong>我要畢業！(畢業門檻 QQ)</strong> 😭</li>
+            </ul>
+            
+            <div class="strategy-box">
+                <span class="strategy-title">🚀 達成策略 (Action Plan)</span>
                 <ul>
-                    <li>使用孩子懂的語言：避免說開刀、切開，改說「把怪獸請走」。</li>
-                    <li>建立掌控感：讓孩子選一個安撫玩具陪同住院。</li>
+                    <li>積極投入實習，主動複習技術。</li>
+                    <li>制定國考讀書計畫，善用線上課程資源。</li>
+                    <li><strong>英文特訓</strong>：利用「油漆式速記訓練系統」與醫學英文教材，每天進步一點點。</li>
                 </ul>
             </div>
+            
+            <button class="interactive-btn" onclick="showModal('給自己的話', '雖然畢業門檻很可怕，但為了成為南丁格爾，拼了！\n\n(其實是為了不要延畢...)')">
+                👆 點我看真心話
+            </button>
+        </section>
+
+        <section class="section-card">
+            <h2>中期目標：成長期 (3-5年)</h2>
+            <p><strong>核心任務：獨立照護、溝通技巧、壓力調適</strong></p>
+            <ul>
+                <li><strong>獨立照護</strong>：在醫院成為熟練護理師，能獨當一面處理臨床問題。</li>
+                <li><strong>溝通升級</strong>：學會與同事、病人及家屬建立良好溝通。</li>
+                <li><strong>情緒穩定</strong>：培養壓力調適能力，穩定應對臨床挑戰。</li>
+            </ul>
+
+            <div class="strategy-box">
+                <span class="strategy-title">🚀 達成策略 (Action Plan)</span>
+                <ul>
+                    <li>累積臨床經驗，熟悉各科別照護流程。</li>
+                    <li>主動向學姐請教（雖然怕噴火龍，但還是要問！），提升臨場反應。</li>
+                    <li>學習團隊合作，不當獨行俠。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>長期目標：開花期 (5年以上)</h2>
+            <p><strong>核心任務：職涯深耕、進修碩士、專科護理師</strong></p>
+            <ul>
+                <li><strong>工作地點</strong>：目標鎖定 <strong>花蓮慈濟醫院</strong> 或一般耳鼻喉科診所（離家近，方便照顧家人 🏠）。</li>
+                <li><strong>進修計畫</strong>：報考 <strong>慈濟大學護理研究所</strong>，培養實證研究與問題解決能力。</li>
+                <li><strong>進階角色</strong>：規劃成為 <strong>專科護理師 (NP)</strong>，提升專業自主性。</li>
+            </ul>
+
+            <div class="strategy-box">
+                <span class="strategy-title">🚀 達成策略 (Action Plan)</span>
+                <ul>
+                    <li>準備研究所考試與申請資料 (參考114年度慈大簡章)。</li>
+                    <li>參與研討會，持續更新醫療知識。</li>
+                    <li>在特定領域累積深度經驗。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>可能遇到的挑戰與解決方式</h2>
+            <div class="challenge-container">
+                <div class="challenge-box">
+                    <h3>🛑 挑戰：職場人際與溝通</h3>
+                    <p>面對臨床高壓導致的職場冷暴力，以及內向者不擅長的即時社交。</p>
+                </div>
+                <div class="challenge-box solution">
+                    <h3>🛡️ 對策：建立情緒防護牆</h3>
+                    <ul>
+                        <li><strong>情緒分離</strong>：區分「專業指教」與「個人情緒」，不把學姊的怒氣全往心裡去。</li>
+                        <li><strong>非同步溝通</strong>：發揮內向者優勢，善用「事後做筆記」或「訊息確認」，減少當下高壓的焦慮。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="challenge-container" style="margin-top: 20px;">
+                <div class="challenge-box">
+                    <h3>🛑 挑戰：同理疲勞與情緒耗竭</h3>
+                    <p>因過度投入病人照護，導致內在能量枯竭 (Burnout)。</p>
+                </div>
+                <div class="challenge-box solution">
+                    <h3>🔋 對策：微型自我照護</h3>
+                    <ul>
+                        <li><strong>微休息</strong>：在班表間隙尋求短暫獨處。</li>
+                        <li><strong>模式切換</strong>：下班後強制從「護理師模式」切換回「個人生活」，靠閱讀、運動或吸貓來充電！</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 20px;">自我期許：職涯的永續與自我實現</h2>
+            <p style="font-size: 1.2rem; font-style: italic; color: #555; margin-bottom: 30px;">
+                「專業是不斷修煉的過程，而熱忱是唯一的路標。」<br>
+                願我的熱忱在專業中沉澱，願我的溫柔在臨床中強大。
+            </p>
+            
+            <div style="text-align: left; max-width: 700px; margin: 0 auto; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                <p><strong>🎯 職涯願景：</strong><br>短期內成為讓人放心的護理師；長期則發揮內向者優勢，轉化為深度的個案管理或臨床教學能力。</p>
+                <br>
+                <p><strong>❤️ 給未來的自己：</strong><br>即便看透了醫療現場的無奈與疲憊，依然要擁抱當初讀護理的那份熱忱。<br>成為最細心傾聽病患需求、最能體恤學弟妹困境的那個人！</p>
+            </div>
+
+            <button class="main-cta-btn" onclick="showModal('核心結論', '謝謝你見證柔安的成長計畫！\n\n雖然我是社恐小透明，\n但我會帶著溫柔與專業，\n堅定地走在這條路上。✨')">
+                為我的未來加油！(點擊)
+            </button>
+        </section>
+
+    </main>
+
+    <div id="modal" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h3 id="modal-title" style="color: var(--primary-color); margin-bottom: 15px;">標題</h3>
+            <p id="modal-text" style="font-size: 1.1rem; white-space: pre-line;">內容</p>
+            <button class="modal-close" onclick="closeModal()">收到了！</button>
         </div>
     </div>
 
-    <div class="section">
-        <div class="story-card">
-            <span class="emoji">🦸‍♂️</span>
-            <div class="badge">第 2 站：超人換裝</div>
-            <h2 class="story-title">神奇的超人飛行衣</h2>
-            <div class="story-text">到了醫院，我們要換上特製的『超人飛行衣』(手術衣)。這件衣服背後有洞洞，是為了讓超人飛得更輕快喔！</div>
-            <div class="parent-guide">
-                <h3>📋 護理師給家長的建議：</h3>
-                <ul>
-                    <li>角色扮演遊戲：利用醫師玩具組模擬聽診。</li>
-                    <li>誠實原則：強調這是「深層午睡」，不要騙孩子只是去睡覺。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.section-card').forEach(card => { observer.observe(card); });
 
-    <div class="section">
-        <div class="story-card">
-            <span class="emoji">🫧</span>
-            <div class="badge">第 3 站：魔法夢境</div>
-            <h2 class="story-title">聞聞看！魔法泡泡噴霧</h2>
-            <div class="story-text">吸三口氣，進入甜甜的夢鄉（麻醉）。等夢醒了，調皮的小怪獸就被請走了。</div>
-            <div class="parent-guide">
-                <h3>📋 護理師給家長的建議：</h3>
-                <ul>
-                    <li>父母冷靜孩子才安心：您的冷靜是孩子最大的安全感。</li>
-                    <li>道別儀式：進手術室前堅定擁抱，並承諾醒來時一定在身邊。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalText = document.getElementById('modal-text');
 
-    <div class="section">
-        <div class="story-card">
-            <span class="emoji">🛌</span>
-            <div class="badge">第 4 站：能量修復</div>
-            <h2 class="story-title">暖呼呼的秘密基地</h2>
-            <div class="story-text">你在恢復室醒來，雖然傷口微痛，但你的身體正在變強壯！</div>
-            <div class="parent-guide">
-                <h3>📋 護理師給家長的建議：</h3>
-                <ul>
-                    <li>非藥物止痛：利用音樂影片轉移注意力。</li>
-                    <li>飲食引導：從少量飲水開始，可準備布丁鼓勵進食。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="story-card">
-            <span class="emoji">🏆</span>
-            <div class="badge">第 5 站：勇者大勝利</div>
-            <h2 class="story-title">頒發勇敢勳章</h2>
-            <div class="story-text">完成任務可以回家了！記得回家要乖乖吃藥、多休息，很快就能跑跑跳跳了。</div>
-            <div class="parent-guide">
-                <h3>📋 護理師給家長的建議：</h3>
-                <ul>
-                    <li>觀察傷口紅腫熱痛。</li>
-                    <li>正向鼓勵：肯定孩子完成手術的勇氣。</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="footer">
-    <strong>1134047 潘柔安</strong><br>
-    針對一位對手術感到極度焦慮的學齡前兒童之衛教網頁<br>
-    © 2025 Children's General Hospital | Pediatric Team
-</div>
-
+        function showModal(title, text) {
+            modalTitle.innerText = title;
+            modalText.innerText = text; 
+            modal.style.display = 'flex';
+        }
+        function closeModal() { modal.style.display = 'none'; }
+    </script>
 </body>
 </html>
